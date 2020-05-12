@@ -28,3 +28,34 @@ router.get("/", (req, res)=>{
         res.status(500).json({error: error.message})
     })
 })
+
+
+//GET request- get by id
+
+router.get("/:id", (req, res)=>{
+    const { id } = req.params;
+    db("cars")
+    .where({ id })
+    .first()
+    .then((car)=>{
+        res.status(200).json(car)
+    })
+    .catch((error)=>{
+        res.status(500).json({error: error.message})
+    })
+})
+
+//PUT request- update
+
+router.put("/:id", (req, res)=>{
+    const { id } = req.params; 
+    db("cars")
+    .where({id})
+    .update(req.body)
+    .then((car)=>{
+        res.status(200).json(car)
+    })
+    .catch((err)=>{
+        res.status(500).json({error: error.message})
+    })
+})
