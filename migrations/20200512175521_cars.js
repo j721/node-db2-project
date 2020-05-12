@@ -4,7 +4,7 @@ exports.up = function(knex) {
       tbl.increments();
       tbl.string("make", 255).notNullable()
       tbl.string("model", 255).notNullable()
-      tbl.string("mileage", 255).notNullable()
+      tbl.integer("mileage", 255).notNullable()
       tbl.string("transmission", 255)
       tbl.string("status", 255)
       tbl.string("vin", 255).notNullable().unique();
@@ -16,7 +16,7 @@ exports.down = function(knex) {
   return knex.schema.dropTableIfExists("cars")
 };
 
-//255 max number of characters
+//255 max number of characterskne
 
 //budgeting with interger
 
