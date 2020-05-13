@@ -4,7 +4,6 @@ const db = require("../data/dbConnection");
 const router = express.Router();
 
 //Post request
-
 router.post("/", (req, res)=>{
     db("cars")
     .insert(req.body, "id")
@@ -45,7 +44,7 @@ router.get("/:id", (req, res)=>{
     })
 })
 
-//PUT request- update
+//PUT request- update by id
 
 router.put("/:id", (req, res)=>{
     const { id } = req.params; 
@@ -60,6 +59,8 @@ router.put("/:id", (req, res)=>{
     })
 })
 
+
+//DELETE request- delete by id
 router.delete("/:id", (req, res)=>{
     const { id }= req.params;
     db("cars")
