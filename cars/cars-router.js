@@ -67,7 +67,7 @@ router.delete("/:id", (req, res)=>{
     .where({ id })
     .del()
     .then((car)=>{
-        res.status(200).json(car);
+        res.status(200).json(`car with ${id} has been removed`);
     })
     .catch((error)=>{
         res.status(500).json({error: error.message})
