@@ -1,7 +1,7 @@
 const express = require("express");
 const db = require("../data/dbConnection");
 
-const router = require("../data/dbConnection");
+const router = express.Router();
 
 //Post request
 
