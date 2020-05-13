@@ -59,3 +59,18 @@ router.put("/:id", (req, res)=>{
         res.status(500).json({error: error.message})
     })
 })
+
+router.delete("/:id", (req, res)=>{
+    const { id }= req.params;
+    db("cars")
+    .where({ id })
+    .del()
+    .then((car)=>{
+        res.status(200).json(car);
+    })
+    .catch((error)=>{
+        res.status(500).json({error: error.message})
+    })
+})
+
+module.exports = router; 
