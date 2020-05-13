@@ -8,7 +8,7 @@ router.post("/", (req, res)=>{
     db("cars")
     .insert(req.body, "id")
     .then((cars)=>{
-        res.statust(200).json(cars)
+        res.status(200).json(cars)
     })
     .catch((error)=>{
         res.status(500).json({error: error.message})
